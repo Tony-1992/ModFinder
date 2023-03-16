@@ -55,7 +55,7 @@ namespace ModFinder
             return false;
         }
 
-        public string FindFailureInModFolder()
+        public string FindFailedModFolder()
         {
             string failureFolderPath = string.Empty;
             foreach (DirectoryInfo folder in FileManager.GetFolders(ModFolderPath))

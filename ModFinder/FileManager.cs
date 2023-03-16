@@ -34,7 +34,7 @@ namespace ModFinder
             foreach (var folder in modFolder.EnumerateDirectories())
             {
                 var pathToMods = Path.Combine(moveToPath, folder.Name);
-                Directory.Delete(pathToMods);
+                Directory.Delete(pathToMods, true);
             }
 
             foreach (var folder in tempFolder.EnumerateDirectories())

@@ -19,15 +19,18 @@ ScriptManager scriptManager = new(logger, gamePath, fileManager, int.Parse(waitT
 logger.LogMessage("\n============== LOGS ================");
 try
 {
-    string failedModLocation = scriptManager.FindFailureInModFolder();
+    string failedModLocation = scriptManager.FindFailedModFolder();
     scriptManager.CloseGame();
 
     string failedModName = scriptManager.FindFailedFile(failedModLocation);
-
-    fileManager.CleanUp(
-        scriptManager.GetTempModPath(), scriptManager.GetModFolderPath(), true);
-
     logger.LogSuccess($"Failed mod found ==> {failedModName}");
+
+    logger.LogMessage("Beginning folder clean up...");
+    fileManager.CleanUp(
+        moveFromPath: scriptManager.GetTempModPath(),
+        moveToPath: scriptManager.GetModFolderPath(),
+        deleteMoveFromPath: true);
+
 
     logger.LogMessage("\n==============================");
     logger.LogMessage($"Start time: {startTime} ==> End time: {DateTime.Now}");
