@@ -4,7 +4,7 @@
 When Sims4 updates occur, custom mods break the game which prevents Sims4 from opening.
 This means a conveluted approach is used to filter the mods 1 by 1 until the problem mod is eventually found and removed.
 
-This is a very time consuming and manual task.
+Currently, this is very time consuming.
 
 ### The solution
 A C# console application which will iterate through the mods folder, moving clean mods to a temp location until the game finds the problem folder.
